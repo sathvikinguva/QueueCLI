@@ -39,7 +39,3 @@ wheels/
 # OS
 .DS_Store
 Thumbs.db
-
-# Project specific
-logs/
-.queuectl/

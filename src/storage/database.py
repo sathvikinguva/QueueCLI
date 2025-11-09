@@ -28,7 +28,7 @@ class JobModel(Base):
 class Storage:
     def __init__(self, db_path: str = None):
         if not db_path:
-            db_path = os.path.join(os.path.expanduser("~"), ".queuectl", "jobs.db")
+            db_path = os.path.join(os.path.expanduser("~"), ".queuecli", "jobs.db")
             os.makedirs(os.path.dirname(db_path), exist_ok=True)
         
         self.engine = create_engine(f"sqlite:///{db_path}")

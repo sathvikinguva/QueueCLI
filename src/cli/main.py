@@ -14,7 +14,7 @@ worker_manager = WorkerManager(storage)
 
 @click.group()
 def cli():
-    """QueueCTL - A CLI-based background job queue system"""
+    """QueueCLI - A CLI-based background job queue system"""
     pass
 
 @cli.command()
@@ -181,8 +181,8 @@ def config():
     """Manage configuration"""
     pass
 
-# Store configuration in ~/.queuectl/config.json
-CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".queuectl", "config.json")
+# Store configuration in ~/.queuecli/config.json
+CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".queuecli", "config.json")
 DEFAULT_CONFIG = {
     "max-retries": 3,
     "backoff-base": 2,

@@ -1,6 +1,6 @@
-# QueueCTL
+# QueueCLI
 
-QueueCTL is a CLI-based background job queue system that manages background jobs with worker processes, handles retries using exponential backoff, and maintains a Dead Letter Queue (DLQ) for permanently failed jobs.
+QueueCLI is a CLI-based background job queue system that manages background jobs with worker processes, handles retries using exponential backoff, and maintains a Dead Letter Queue (DLQ) for permanently failed jobs.
 
 ## Features
 
@@ -20,8 +20,8 @@ QueueCTL is a CLI-based background job queue system that manages background jobs
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/queuectl.git
-   cd queuectl
+   git clone https://github.com/yourusername/queuecli.git
+   cd queuecli
    ```
 
 2. Create and activate a virtual environment:
@@ -40,50 +40,50 @@ QueueCTL is a CLI-based background job queue system that manages background jobs
 ### Enqueuing a Job
 
 ```bash
-python queuectl.py enqueue '{"command": "echo \"Hello World\"", "max_retries": 3}'
+python queuecli.py enqueue '{"command": "echo \"Hello World\"", "max_retries": 3}'
 ```
 
 ### Starting Workers
 
 ```bash
 # Start 3 worker processes
-python queuectl.py worker start --count 3
+python queuecli.py worker start --count 3
 ```
 
 ### Checking Queue Status
 
 ```bash
-python queuectl.py status
+python queuecli.py status
 ```
 
 ### Listing Jobs
 
 ```bash
 # List all pending jobs
-python queuectl.py list --state pending
+python queuecli.py list --state pending
 
 # List all jobs in DLQ
-python queuectl.py dlq list
+python queuecli.py dlq list
 ```
 
 ### Managing Dead Letter Queue
 
 ```bash
 # List jobs in DLQ
-python queuectl.py dlq list
+python queuecli.py dlq list
 
 # Retry a job from DLQ
-python queuectl.py dlq retry <job-id>
+python queuecli.py dlq retry <job-id>
 ```
 
 ### Configuration Management
 
 ```bash
 # Set maximum retry attempts
-python queuectl.py config set max-retries 5
+python queuecli.py config set max-retries 5
 
 # Set backoff base (for exponential backoff)
-python queuectl.py config set backoff-base 2
+python queuecli.py config set backoff-base 2
 ```
 
 ## Architecture Overview
@@ -99,8 +99,8 @@ python queuectl.py config set backoff-base 2
 ### Data Persistence
 
 - Uses SQLite database for job storage
-- Database file located at `~/.queuectl/jobs.db`
-- Configuration stored in `~/.queuectl/config.json`
+- Database file located at `~/.queuecli/jobs.db`
+- Configuration stored in `~/.queuecli/config.json`
 
 ### Worker Process Logic
 
@@ -124,20 +124,20 @@ pytest tests/
 
 1. Basic job execution:
    ```bash
-   python queuectl.py enqueue '{"command": "echo \"Success\""}' 
-   python queuectl.py worker start
+   python queuecli.py enqueue '{"command": "echo \"Success\""}' 
+   python queuecli.py worker start
    ```
 
 2. Failed job with retries:
    ```bash
-   python queuectl.py enqueue '{"command": "invalid_command"}'
-   python queuectl.py worker start
+   python queuecli.py enqueue '{"command": "invalid_command"}'
+   python queuecli.py worker start
    ```
 
 3. Multiple workers:
    ```bash
-   python queuectl.py worker start --count 3
-   python queuectl.py status  # Check worker count
+   python queuecli.py worker start --count 3
+   python queuecli.py status  # Check worker count
    ```
 
 ## Assumptions & Trade-offs
