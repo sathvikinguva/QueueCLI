@@ -4,23 +4,23 @@ QueueCLI is a CLI-based background job queue system that manages background jobs
 
 ## Features
 
-- ✅ Job enqueuing and management
-- ✅ Multiple worker process support
-- ✅ Automatic retries with exponential backoff
-- ✅ Dead Letter Queue (DLQ) for failed jobs
-- ✅ Persistent job storage using SQLite
-- ✅ Configurable retry and backoff settings
-- ✅ Clean CLI interface with help texts
-- ✅ Job priority support
-- ✅ Scheduled/delayed jobs support
-- ✅ Job output logging
-- ✅ Job timeout handling
+- Job enqueuing and management
+- Multiple worker process support
+- Automatic retries with exponential backoff
+- Dead Letter Queue (DLQ) for failed jobs
+- Persistent job storage using SQLite
+- Configurable retry and backoff settings
+- Clean CLI interface with help texts
+- Job priority support
+- Scheduled/delayed jobs support
+- Job output logging
+- Job timeout handling
 
 ## Setup Instructions
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/queuecli.git
+   [git clone https://github.com/yourusername/queuecli.git](https://github.com/sathvikinguva/QueueCLI.git)
    cd queuecli
    ```
 
